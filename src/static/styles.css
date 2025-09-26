@@ -9,19 +9,33 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  body {
+    max-width: 1200px;
+    padding: 20px;
+  }
 }
 
 header {
   text-align: center;
-  padding: 20px 0;
-  margin-bottom: 30px;
+  padding: 15px 0;
+  margin-bottom: 20px;
   background-color: #1a237e;
   color: white;
   border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 20px 0;
+    margin-bottom: 30px;
+  }
 }
 
 header h1 {
@@ -29,15 +43,39 @@ header h1 {
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
+/* Layout for larger screens */
+/* Mobile-first responsive design */
 @media (min-width: 768px) {
   main {
-    grid-template-columns: 2fr 1fr;
+    padding: 0 40px;
+  }
+  
+  #activities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #activities-list {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 25px;
+  }
+  
+  .activity-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .activity-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -46,8 +84,18 @@ section {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+#signup-container {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+#signup-container p {
+  color: #666;
+  margin-bottom: 10px;
 }
 
 section h3 {
@@ -59,19 +107,53 @@ section h3 {
 
 .activity-card {
   margin-bottom: 15px;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #f9f9f9;
+  position: relative;
 }
 
 .activity-card h4 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #0066cc;
+  font-size: 1.2em;
 }
 
 .activity-card p {
   margin-bottom: 8px;
+}
+
+.activity-actions {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.register-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bold;
+  min-width: 140px;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.register-btn:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+}
+
+.register-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 
 /* New styles for participants section */
