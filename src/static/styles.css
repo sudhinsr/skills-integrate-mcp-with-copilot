@@ -50,6 +50,7 @@ main {
 }
 
 /* Layout for larger screens */
+/* Mobile-first responsive design */
 @media (min-width: 768px) {
   main {
     padding: 0 40px;
@@ -64,8 +65,17 @@ main {
 
 @media (min-width: 1024px) {
   #activities-list {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 25px;
+  }
+  
+  .activity-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .activity-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -97,15 +107,17 @@ section h3 {
 
 .activity-card {
   margin-bottom: 15px;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #f9f9f9;
+  position: relative;
 }
 
 .activity-card h4 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #0066cc;
+  font-size: 1.2em;
 }
 
 .activity-card p {
@@ -121,21 +133,27 @@ section h3 {
   background-color: #4caf50;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
   font-weight: bold;
+  min-width: 140px;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
 }
 
 .register-btn:hover:not(:disabled) {
   background-color: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
 }
 
 .register-btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 
 /* New styles for participants section */
